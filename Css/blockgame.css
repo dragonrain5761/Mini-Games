@@ -12,10 +12,11 @@
   padding-top: 45px;
 }
 canvas {
-  background: #eee;
+  background: rgba(238, 238, 238, 0.618);
   display: block;
   margin: 0 auto;
   height: 430px;
+  position: relative;
 }
 .title {
   text-align: center;

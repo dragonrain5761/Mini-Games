@@ -1,6 +1,6 @@
 var canvas = document.getElementById("gamezone");
 var ctx = canvas.getContext("2d"); //캔버스에 그리기 위해 실질적으로 사용되는 도구인 rendering context => 2d
-var startbutton = document.getElementById("startButton")
+var startButton = document.getElementById("startButton")
 
 var ballRadius = 10;
 var x = canvas.width/2;
@@ -161,6 +161,5 @@ function gameInit() {
     setInterval(draw, 10); //10밀리초마다 draw 함수 실행
 }
 
-startbutton.onclick = gameInit();
-
-console.log(startbutton)
+startButton.addEventListener("click", gameInit);
+console.log(startButton)
