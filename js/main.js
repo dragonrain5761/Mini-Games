@@ -29,17 +29,22 @@ function run() {
     isPlaying = true;
     time = GAME_TIME;
     wordInput.focus();
+    
     scoreDisplay.innerText = 0;
     timeInterval = setInterval(countDown, 1000);
     checkInterval = setInterval(checkStatus, 50);
     buttonChange('in game...')
+    const inputWordBox = document.getElementById("inputWordBox")
+    inputWordBox.setAttribute("style", "inline-block")
 }
 
 function checkStatus() {
     if (!isPlaying && time === 0) {
+        
         buttonChange("Game start!")
 
         clearInterval(checkInterval)
+        
     }
 }
 
@@ -85,6 +90,17 @@ function countDown() {
         clearInterval(timeInterval)
     }
     timeDisplay.innerText = time;
+    if (time === 0) {
+        saveLoad()
+    }
+}
+
+function saveLoad() {
+    const score = document.getElementById("score")
+    const loadScore = document.getElementById("load")
+    score.setAttribute("style", "inline-block")
+    loadScore.setAttribute("style", "inline-block")
+
 }
 
 
@@ -92,4 +108,14 @@ function countDown() {
 function buttonChange(text) {
     button.innerText = text;
     text === 'Game start!' ? button.classList.remove('loading') : button.classList.add('loading')
+}
+
+function save() {
+    const score = document.getElementById("score").innerText;
+    localStorage.setItem("score", score)
+}
+
+function load() {
+    const loadScore = document.getElementById("load")
+    loadScore.innerText = localStorage.getItem("score")
 }
