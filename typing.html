@@ -34,19 +34,19 @@
         </div>
     </div>
     <button class="button loading" onclick="run()">loading....</button>
-
     <div>
-        <button style="display: none;" type="button" onclick="save()">
-            저장하기
+        <input type="text" id="userName" placeholder="NickName" style="display: none;" class="word-input">
+    </div>
+    <div>
+        <button style="display: none;" type="button" onclick="save()" id="saveButton" class="button">
+            SAVE
         </button>
-        <button style="display: none;" type="button" onclick="load()">
-            불러오기
+        <button style="display: none;" type="button" onclick="load()" id="loadButton" class="button">
+            LOAD
         </button>
     </div>
 
-    <div>
-        <p id="load"></p>
-    </div>
+    <div id="load"></div>
     <script src="js/main.js"></script>
     <div class="source">
         <p>img_source : https://pin.it/3URoZfV</p>
