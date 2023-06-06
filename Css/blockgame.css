@@ -60,3 +60,17 @@ button > img {
   border-radius: 10px;
   background-color: rgb(3, 155, 3);
 }
+
+.scores {
+  color: rgba(238, 238, 238, 0.689);
+  height: 300px;
+  width: 750px;
+  margin: 110px auto;
+  padding: 30px;
+  background-color: black;
+  border-radius: 10px;
+}
+
+th {
+  padding-bottom: 20px;
+}

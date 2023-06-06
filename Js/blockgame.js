@@ -23,6 +23,40 @@ var rightPressed = false;
 var leftPressed = false;
 
 var score = 0;
+var today = new Date('2022-12-25 10:00:00')
+var startText = "Press Start Button Below"
+var showGameStart = true
+
+function showText() {
+    if (showGameStart == true) {
+        ctx.fillStyle = 'black'
+        ctx.fillRect(120, 100, 240, 60)
+        ctx.font = '20px Arial'
+        ctx.fillStyle = 'red'
+        ctx.fillText(startText, 130, 140)
+    } else {
+        showGameStart = false
+    }
+}
+
+function gameOver(score, today) {
+    var scores = {
+        "id": today.getTime(),
+        "score": score,
+        "date" : today,
+    }
+
+}
+
+// function success() {
+//     ctx.fillStyle = 'black'
+//     ctx.fillRect(120, 100, 240, 60)
+//     ctx.font = '20px Arial'
+//     ctx.fillStyle = 'red'
+//     ctx.fillText(`Your Score: ${score}.
+//         Congratulations!
+//     ` , 130, 140)
+// }
 
 //벽돌 만들기
     var bricks = [];
@@ -32,7 +66,6 @@ var score = 0;
             bricks[c][r] = { x: 0, y: 0, status: 1 };
         }
     }
-
 
 //원 그리기 함수
 function drawBall() {
@@ -70,7 +103,6 @@ function drawBricks() {
     }
 }
 
-
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height); //직전에 그린 원 지우기
     drawBricks();
@@ -92,8 +124,8 @@ function draw() {
             dy = -dy;
         }
         else {
-            alert("GAME OVER");
-            // document.location.reload();
+            gameOver(score, today);
+            location.reload();
         }
     }
 
@@ -157,9 +189,12 @@ function drawScore() {
     ctx.fillText("Score: "+score, 8, 20);
 }
 
+showText();
 function gameInit() {
+    showGameStart = false
     setInterval(draw, 10); //10밀리초마다 draw 함수 실행
+    console.log(time)
+
 }
 
 startButton.addEventListener("click", gameInit);
-console.log(startButton)
