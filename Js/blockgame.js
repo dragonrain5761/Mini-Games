@@ -23,22 +23,26 @@ var rightPressed = false;
 var leftPressed = false;
 
 var score = 0;
-var today = new Date().toLocaleDateString()
+var today = new Date()
 var startText = "Press Start Button Below"
 var showGameStart = true
 var records = []
 
 if (localStorage.getItem("blockgame_records")) {
     records = JSON.parse(localStorage.getItem("blockgame_records"))
+    //같은 id, 같은 score 인 객체를 하나로 합치기
     records = records.reduce(function(acc, current) {
         if (acc.findIndex(({ id }) => id === current.id) === -1) {
             acc.push(current);
-            console.log(acc)
         }
         return acc;
     }, []);
-    console.log(records)
+    //score가 큰 객체부터 정렬하기
+    records.sort(function(a,b) {
+        return b.score - a.score
+    })
     $("#scoreTable").empty;
+    //정렬된 배열을 하나씩 테이블에 append 하기
     records.forEach((record) => {
         let score = record.score
         let date = record.date
@@ -56,9 +60,9 @@ if (localStorage.getItem("blockgame_records")) {
 
 function save(score, today) {
     var scores = {
-        "id": today.getTime(),
+        "id": today,
         "score": score,
-        "date" : today,
+        "date" : today.toLocaleDateString(),
     }
     records.push(scores)
     localStorage.setItem('blockgame_records',JSON.stringify(records))

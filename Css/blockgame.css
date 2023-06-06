@@ -65,19 +65,22 @@ button > img {
   color: rgba(238, 238, 238, 0.689);
   height: 300px;
   width: 750px;
-  margin: 110px auto;
-  padding: 10px;
+  margin: 125px auto;
   background-color: black;
   border-radius: 10px;
+  overflow: hidden;
 }
 
 table {
   width: 600px;
   height: 200px;
-  margin: 30px auto auto auto;
+  margin: 10px auto auto auto;
 }
 
 th {
   padding-bottom: 20px;
   border-bottom: 1px solid rgba(238, 238, 238, 0.689);
+}
+
+tr {
 }
