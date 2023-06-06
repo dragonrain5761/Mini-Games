@@ -3,7 +3,6 @@ var ctx = canvas.getContext("2d"); //캔버스에 그리기 위해 실질적으�
 var startButton = document.getElementById("startButton")
 var cancelButton = document.getElementById("cancelButton")
 
-
 var ballRadius = 10;
 var x = canvas.width/2;
 var y = canvas.height-30;
@@ -217,6 +216,8 @@ function drawScore() {
 
 //게임 시작 전 세팅
 showText();
+
+//게임 시작
 function gameInit() {
     showGameStart = false
     setInterval(draw, 10); //10밀리초마다 draw 함수 실행
