@@ -1,6 +1,8 @@
 var canvas = document.getElementById("gamezone");
 var ctx = canvas.getContext("2d"); //캔버스에 그리기 위해 실질적으로 사용되는 도구인 rendering context => 2d
 var startButton = document.getElementById("startButton")
+var cancelButton = document.getElementById("cancelButton")
+
 
 var ballRadius = 10;
 var x = canvas.width/2;
@@ -80,16 +82,6 @@ function showText() {
     }
 }
 
-// function success() {
-//     ctx.fillStyle = 'black'
-//     ctx.fillRect(120, 100, 240, 60)
-//     ctx.font = '20px Arial'
-//     ctx.fillStyle = 'red'
-//     ctx.fillText(`Your Score: ${score}.
-//         Congratulations!
-//     ` , 130, 140)
-// }
-
 //벽돌 만들기
     var bricks = [];
     for(var c=0; c<brickColumnCount; c++) {
@@ -103,7 +95,7 @@ function showText() {
 function drawBall() {
     ctx.beginPath();
     ctx.arc(x, y, ballRadius, 0, Math.PI*2);
-    ctx.fillStyle = "#0095DD";
+    ctx.fillStyle = "#0000FF";
     ctx.fill();
     ctx.closePath();
 }
@@ -111,7 +103,7 @@ function drawBall() {
 function drawPaddle() {
     ctx.beginPath();
     ctx.rect(paddleX, canvas.height-paddleHeight, paddleWidth, paddleHeight);
-    ctx.fillStyle = "#0095DD";
+    ctx.fillStyle = "#FF00FF";
     ctx.fill();
     ctx.closePath();
 }
@@ -127,7 +119,7 @@ function drawBricks() {
                 bricks[c][r].y = brickY;
                 ctx.beginPath();
                 ctx.rect(brickX, brickY, brickWidth, brickHeight);
-                ctx.fillStyle = "#0095DD";
+                ctx.fillStyle = "#800080";
                 ctx.fill();
                 ctx.closePath();
             }
@@ -209,6 +201,7 @@ function collisionDetection() {
                     score++;
                     if(score == brickRowCount*brickColumnCount) {
                         alert("YOU WIN, CONGRATULATIONS!");
+                        location.reload()
                     }
                 }
             }
@@ -222,10 +215,17 @@ function drawScore() {
     ctx.fillText("Score: "+score, 8, 20);
 }
 
-
+//게임 시작 전 세팅
 showText();
 function gameInit() {
     showGameStart = false
     setInterval(draw, 10); //10밀리초마다 draw 함수 실행
 }
+
+//게임 다시 시작하기
+function reload() {
+    location.reload()
+}
+
 startButton.addEventListener("click", gameInit);
+cancelButton.addEventListener("click", reload);
