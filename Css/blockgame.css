@@ -66,11 +66,18 @@ button > img {
   height: 300px;
   width: 750px;
   margin: 110px auto;
-  padding: 30px;
+  padding: 10px;
   background-color: black;
   border-radius: 10px;
 }
 
+table {
+  width: 600px;
+  height: 200px;
+  margin: 30px auto auto auto;
+}
+
 th {
   padding-bottom: 20px;
+  border-bottom: 1px solid rgba(238, 238, 238, 0.689);
 }

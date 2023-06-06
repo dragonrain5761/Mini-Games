@@ -23,9 +23,46 @@ var rightPressed = false;
 var leftPressed = false;
 
 var score = 0;
-var today = new Date('2022-12-25 10:00:00')
+var today = new Date().toLocaleDateString()
 var startText = "Press Start Button Below"
 var showGameStart = true
+var records = []
+
+if (localStorage.getItem("blockgame_records")) {
+    records = JSON.parse(localStorage.getItem("blockgame_records"))
+    records = records.reduce(function(acc, current) {
+        if (acc.findIndex(({ id }) => id === current.id) === -1) {
+            acc.push(current);
+            console.log(acc)
+        }
+        return acc;
+    }, []);
+    console.log(records)
+    $("#scoreTable").empty;
+    records.forEach((record) => {
+        let score = record.score
+        let date = record.date
+        let temp_html = `
+            <tr>
+                <td>${score}</td>
+                <td>${date}</td>
+            </tr>
+        `
+        $("#scoreTable").append(temp_html)
+    })
+} else {
+    records = []
+}
+
+function save(score, today) {
+    var scores = {
+        "id": today.getTime(),
+        "score": score,
+        "date" : today,
+    }
+    records.push(scores)
+    localStorage.setItem('blockgame_records',JSON.stringify(records))
+}
 
 function showText() {
     if (showGameStart == true) {
@@ -37,15 +74,6 @@ function showText() {
     } else {
         showGameStart = false
     }
-}
-
-function gameOver(score, today) {
-    var scores = {
-        "id": today.getTime(),
-        "score": score,
-        "date" : today,
-    }
-
 }
 
 // function success() {
@@ -124,7 +152,8 @@ function draw() {
             dy = -dy;
         }
         else {
-            gameOver(score, today);
+            // clearInterval(draw);
+            save(score, today);
             location.reload();
         }
     }
@@ -189,12 +218,10 @@ function drawScore() {
     ctx.fillText("Score: "+score, 8, 20);
 }
 
+
 showText();
 function gameInit() {
     showGameStart = false
     setInterval(draw, 10); //10밀리초마다 draw 함수 실행
-    console.log(time)
-
 }
-
 startButton.addEventListener("click", gameInit);
