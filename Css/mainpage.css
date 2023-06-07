@@ -1,0 +1,278 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+  font-family: 'pixel';
+  background-color: black;
+  cursor: url('../Assets/imge/smallmouse.png'), auto;
+}
+
+/* 메인 콘텐츠 및 이미지 */
+
+.main-container {
+  position: flex;
+  width: 100%;
+  height: 1000px;
+
+}
+
+.main-container>.image-box>img {
+  width: 100%;
+  height: 100%;
+
+}
+
+.main-container>.title-box {
+  font-size: 100px;
+  font-weight: 800;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  line-height: 0.5;
+  transform: translateY(300px);
+
+}
+
+/* 가운데 로딩 창 */
+
+.start-button {
+  display: none;
+}
+
+.spinner {
+  animation: spin 2s linear infinite;
+  color: white;
+
+}
+
+.show {
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateX(50vw);
+  transform: translateY(500px);
+}
+
+
+
+/* 인트로 텍스트 */
+
+.title-box>.intro-title {
+  margin-top: 5px;
+  line-height: 1.5;
+  color: white;
+}
+
+.intro-title:after {
+  content: '|';
+  display: inline-block;
+  font-size: 120px;
+  animation: moveCursor 600ms infinite;
+}
+
+.delete {
+  display: none;
+}
+
+/* 게임스타트 텍스틑 */
+
+.move-title {
+  left: 42%;
+  bottom: 40%;
+  font-size: 50px;
+  position: absolute;
+  color: white;
+  opacity: 0;
+  /* background-size: contain; */
+}
+
+.link {
+  opacity: 1;
+  transition: all 1s;
+}
+
+/* .show {
+  display: block;
+  left: 80%;
+  bottom: 25%;
+  font-size: 50px;
+  position: absolute;
+  opacity: 1;
+  transition: all 2s;
+  z-index: 100;
+  /* background-size: contain;*/
+/* }  */
+
+.move-title:hover {
+  cursor: url('../Assets/imge/smallmouse.png'), pointer;
+}
+
+/* 콘솔로그(게임) 움직이는 CSS (기능 제외)*/
+
+/* .move-title.clicked1 {
+  transform: translate(-1000px);
+} 
+
+.move-title.clicked2 {
+  transform: translateY(-600px);
+}
+
+.move-title.clicked3 {
+  font-size: 10px;
+} 
+.move-title.clicked4 {
+  transform: translateY(-100px);
+} 
+.move-title.clicked5 {
+  transform: translate(-1500x);
+}  */
+
+/* .main-container > .random-box {
+  width: 500px;
+  height: 100px;
+  background-color: yellow;
+} */
+
+/* .link-box h3:hover {
+  transform: translateX(-1000Px);
+  transition: all 5s;
+} */
+
+/* .link-box img{
+  position: absolute;
+  right: 20%;
+  bottom: 0%;
+  height: 350px;
+  
+} */
+
+/* game 이미지 부분 */
+
+.game-bg {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  height: 1310px;
+  background-image: url(../Assets/imge/bg.jpg);
+  background-size: cover;
+  background-position: center;
+  overflow-y: hidden;
+
+}
+
+.game1 {
+  width: 400px;
+  height: 400px;
+  background-repeat: no-repeat;
+  transform: translate(300px, 570px);
+}
+
+.game1 img {
+  width: 600px;
+  height: 300px;
+  transition: all 0.5s ease;
+}
+
+
+
+.game2 {
+  width: 400px;
+  height: 400px;
+  transform: translate(1100px, -405px);
+}
+
+.game2 img {
+  width: 300px;
+  height: 300px;
+  transition: all 0.5s ease;
+}
+
+
+.game3 {
+  /* background-color: orange; */
+  width: 400px;
+  height: 400px;
+  transform: translate(1800px, -215px);
+}
+
+.game3 img {
+  width: 300px;
+  height: 300px;
+  transition: all 0.5s ease;
+
+}
+
+/* 게임 이미지 클릭시 효과 */
+
+.game1 img:hover {
+  cursor: url('../Assets/imge/smallmouse.png'), pointer;
+  transform: scale(1.1);
+}
+
+.game2 img:hover {
+  cursor: url('../Assets/imge/smallmouse.png'), pointer;
+  transform: scale(1.1);
+
+}
+
+.game3 img:hover {
+  cursor: url('../Assets/imge/smallmouse.png'), pointer;
+  transform: scale(1.1);
+
+}
+
+/* 오디오 */
+
+.bgm {
+  position: absolute;
+  right: 1%;
+  top: 1%;
+
+}
+
+@font-face {
+  font-family: 'pixel';
+  src: url('/Assets/fonts/NeoDunggeunmoPro-Regular.ttf') format('truetype');
+
+}
+
+
+@keyframes moveCursor {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    ;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Tablet */
+@media screen and (min-width:768) {
+  .main-container {
+    font-size: 60px;
+    line-height: 1.111;
+  }
+
+  .title-box {
+    font-size: 50px;
+  }
+}
