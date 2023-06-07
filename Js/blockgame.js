@@ -230,3 +230,5 @@ function reload() {
 
 startButton.addEventListener("click", gameInit);
 cancelButton.addEventListener("click", reload);
+
+

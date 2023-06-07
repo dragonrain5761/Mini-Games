@@ -20,7 +20,6 @@ const title = " 내가& nbsp;하려고\n 만든 \n개 임. \n";
 const start = document.getElementsByClassName('start-button')[0];
 const gameLink = document.getElementsByClassName('move-title')[0];
 
-
 let cnt = 0;
 let timer = 0;
 function typingIntroTitle() {
@@ -82,4 +81,3 @@ document.querySelector('.move-title').addEventListener('click', function () {
   const audio = new Audio('./Assets/bgm/click.mp3');
   audio.play();
 })
-

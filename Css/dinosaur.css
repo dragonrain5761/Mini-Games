@@ -1,14 +1,13 @@
-@import url('//cdn.jsdelivr.net/gh/neodgm/neodgm-webfont@1.530/neodgm_code/style.css');
-  *{
-    font-family: 'NeoDunggeunmo Code';
-  }
+@import url("//cdn.jsdelivr.net/gh/neodgm/neodgm-webfont@1.530/neodgm_code/style.css");
+* {
+  font-family: "NeoDunggeunmo Code";
+}
 body {
-  background-image: url('../Assets:dinogame/background.png');
+  background-image: url("../Assets/dinosaur/background.png");
   background-size: cover;
   background-position: center;
   margin: 40px;
-  }
-
+}
 
 #game-container {
   position: relative;
@@ -18,7 +17,7 @@ body {
   background-color: #f2f2f2;
   margin: 0 auto;
   overflow: hidden;
-  background-image: url('../Assets:dinogame/game-back.png');
+  background-image: url("../Assets/dinosaur/game-back.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center;
@@ -28,7 +27,7 @@ body {
   position: absolute;
   width: 70px;
   height: 50px;
-  background-image: url("../Assets:dinogame/dinosaur.png");
+  background-image: url("../Assets/dinosaur/dinosaur.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center;
@@ -75,7 +74,7 @@ body {
   position: absolute;
   width: 20px;
   height: 20px;
-  background-image: url("../Assets:dinogame/obstacle.png");
+  background-image: url("../Assets/dinosaur/obstacle.png");
   background-size: cover;
 }
 

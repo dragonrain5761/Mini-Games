@@ -1,56 +1,38 @@
 html,
 body {
-  margin: 0;
-  padding: 0;
-  width: 100vw;
+  font-family: "pixel";
+  /* padding: 50px; */
   height: 100vh;
   overflow-x: hidden;
-  font-family: 'pixel';
   background-color: black;
-  cursor: url('../Assets/imge/smallmouse.png'), auto;
+  cursor: url("../Assets/mainpage/smallmouse.png"), auto;
+}
+
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* 메인 콘텐츠 및 이미지 */
 
-.main-container {
-  position: flex;
-  width: 100%;
-  height: 1000px;
-
-}
-
-.main-container>.image-box>img {
-  width: 100%;
-  height: 100%;
-
-}
-
-.main-container>.title-box {
+.main-container > .title-box {
   font-size: 100px;
   font-weight: 800;
-  display: flex;
-  flex-direction: column;
+  display: inline;
+  /* flex-direction: column; */
   justify-content: center;
   align-items: center;
   line-height: 0.5;
   transform: translateY(300px);
-
 }
-
 /* 가운데 로딩 창 */
 
 .start-button {
   display: none;
 }
 
-.spinner {
-  animation: spin 2s linear infinite;
-  color: white;
-
-}
-
 .show {
-  z-index: 100;
   width: 100%;
   height: 100%;
   display: flex;
@@ -60,18 +42,17 @@ body {
   transform: translateY(500px);
 }
 
-
-
 /* 인트로 텍스트 */
 
-.title-box>.intro-title {
+.title-box > .intro-title {
+  z-index: 100;
   margin-top: 5px;
   line-height: 1.5;
   color: white;
 }
 
 .intro-title:after {
-  content: '|';
+  content: "|";
   display: inline-block;
   font-size: 120px;
   animation: moveCursor 600ms infinite;
@@ -81,16 +62,27 @@ body {
   display: none;
 }
 
-/* 게임스타트 텍스틑 */
+/* 게임스타트 텍스트 */
 
 .move-title {
-  left: 42%;
-  bottom: 40%;
   font-size: 50px;
-  position: absolute;
   color: white;
   opacity: 0;
-  /* background-size: contain; */
+}
+
+.link-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  width: 10px;
+  margin-top: 400px;
+}
+
+.link-box > .start-button {
+  animation: spin 2s linear infinite;
+  color: white;
 }
 
 .link {
@@ -98,134 +90,112 @@ body {
   transition: all 1s;
 }
 
-/* .show {
-  display: block;
-  left: 80%;
-  bottom: 25%;
-  font-size: 50px;
-  position: absolute;
-  opacity: 1;
-  transition: all 2s;
-  z-index: 100;
-  /* background-size: contain;*/
-/* }  */
-
 .move-title:hover {
-  cursor: url('../Assets/imge/smallmouse.png'), pointer;
+  cursor: url("../Assets/mainpage/smallmouse.png"), pointer;
 }
 
-/* 콘솔로그(게임) 움직이는 CSS (기능 제외)*/
-
-/* .move-title.clicked1 {
-  transform: translate(-1000px);
-} 
-
-.move-title.clicked2 {
-  transform: translateY(-600px);
-}
-
-.move-title.clicked3 {
-  font-size: 10px;
-} 
-.move-title.clicked4 {
-  transform: translateY(-100px);
-} 
-.move-title.clicked5 {
-  transform: translate(-1500x);
-}  */
-
-/* .main-container > .random-box {
-  width: 500px;
-  height: 100px;
-  background-color: yellow;
-} */
-
-/* .link-box h3:hover {
-  transform: translateX(-1000Px);
-  transition: all 5s;
-} */
-
-/* .link-box img{
+.welcomeText {
+  z-index: 100;
   position: absolute;
-  right: 20%;
-  bottom: 0%;
-  height: 350px;
-  
-} */
-
-/* game 이미지 부분 */
+  top: 103%;
+  width: 700px;
+  font-size: 3.5rem;
+  text-align: center;
+}
 
 .game-bg {
   position: absolute;
   top: 100%;
-  width: 100%;
+  width: 1600px;
   height: 1310px;
-  background-image: url(../Assets/imge/bg.jpg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url("../Assets/mainpage/bg.jpg");
   background-size: cover;
   background-position: center;
   overflow-y: hidden;
+  padding-top: 280px;
+}
 
+.game_row {
+  display: flex;
+  justify-content: space-between;
+  width: 1500px;
+  padding: 0px 300px 300px 300px;
+}
+
+.game_row:first-child {
+  justify-content: center;
 }
 
 .game1 {
-  width: 400px;
-  height: 400px;
+  width: 300px;
+  height: 200px;
+  background-image: url("../Assets/mainpage/dinosaur.png");
+  background-size: contain;
   background-repeat: no-repeat;
-  transform: translate(300px, 570px);
-}
-
-.game1 img {
-  width: 600px;
-  height: 300px;
+  background-position: center;
   transition: all 0.5s ease;
 }
-
-
 
 .game2 {
-  width: 400px;
-  height: 400px;
-  transform: translate(1100px, -405px);
-}
-
-.game2 img {
   width: 300px;
-  height: 300px;
+  height: 200px;
+  background-image: url("../Assets/mainpage/chat.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
   transition: all 0.5s ease;
 }
-
 
 .game3 {
-  /* background-color: orange; */
-  width: 400px;
-  height: 400px;
-  transform: translate(1800px, -215px);
-}
-
-.game3 img {
   width: 300px;
-  height: 300px;
+  height: 200px;
+  background-image: url("../Assets/mainpage/wall.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
   transition: all 0.5s ease;
-
+}
+.mypage {
+  position: relative;
+  height: 270px;
+  width: 200px;
+  background-image: url("../Assets/mainpage/users.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: all 0.5s ease;
+  font-size: 3rem;
+}
+.mypage > p {
+  position: absolute;
+  top: 80%;
+  text-align: center;
+  padding: 10px;
 }
 
 /* 게임 이미지 클릭시 효과 */
 
-.game1 img:hover {
-  cursor: url('../Assets/imge/smallmouse.png'), pointer;
+.game1:hover {
+  cursor: url("../Assets/mainpage/smallmouse.png"), pointer;
   transform: scale(1.1);
 }
 
-.game2 img:hover {
-  cursor: url('../Assets/imge/smallmouse.png'), pointer;
+.game2:hover {
+  cursor: url("../Assets/mainpage/smallmouse.png"), pointer;
   transform: scale(1.1);
-
 }
 
-.game3 img:hover {
-  cursor: url('../Assets/imge/smallmouse.png'), pointer;
+.game3:hover {
+  cursor: url("../Assets/mainpage/smallmouse.png"), pointer;
   transform: scale(1.1);
+}
 
+.mypageIcon:hover {
+  cursor: url("../Assets/mainpage/smallmouse.png"), pointer;
+  transform: scale(1.1);
 }
 
 /* 오디오 */
@@ -234,15 +204,12 @@ body {
   position: absolute;
   right: 1%;
   top: 1%;
-
 }
 
 @font-face {
-  font-family: 'pixel';
-  src: url('/Assets/fonts/NeoDunggeunmoPro-Regular.ttf') format('truetype');
-
+  font-family: "pixel";
+  src: url("../Assets/fonts/NeoDunggeunmoPro-Regular.ttf") format("truetype");
 }
-
 
 @keyframes moveCursor {
   from {
@@ -251,7 +218,6 @@ body {
 
   to {
     opacity: 0;
-    ;
   }
 }
 
@@ -262,17 +228,5 @@ body {
 
   to {
     transform: rotate(360deg);
-  }
-}
-
-/* Tablet */
-@media screen and (min-width:768) {
-  .main-container {
-    font-size: 60px;
-    line-height: 1.111;
-  }
-
-  .title-box {
-    font-size: 50px;
   }
 }
